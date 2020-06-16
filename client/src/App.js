@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import SavedList from './Movies/SavedList';
 
-import { Switch, Route, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Movie from './Movies/Movie';
 import MovieCard from './Movies/MovieCard'
@@ -34,9 +34,10 @@ const App = () => {
   return (
     <div>
       <SavedList list={savedList} />
-      <div>Replace this Div with your Routes</div>
-      <Route exact path='/' render = {props => <MovieList movies={movieList} {...props}/>}/>
-      <Route path='/movies/:id' render = {props => <Movie {...props}/>}/>
+      <Switch>
+        <Route exact path='/' render = {props => <MovieList movies={movieList} {...props}/>}/>
+        <Route path='/movies/:id' render = {props => <Movie {...props}/>}/>
+      </Switch>
     </div>
   );
 };

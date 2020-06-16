@@ -7,11 +7,10 @@ const Movie = (props) => {
   useEffect(() => {
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
-    const { id } = props.match.params;
+    const {id} = props.match.params;
        axios
         .get(`http://localhost:5000/api/movies/${id}`)
         .then(response => {
-          console.log(response);
           setMovie(response.data);
         })
         .catch(error => {
